@@ -1,0 +1,29 @@
+<h2>Loan Repayment Schedule</h2>
+
+<label>Loan ID: <input [(ngModel)]="loanId" required /></label>
+<button (click)="fetchSchedule()">Fetch Schedule</button>
+
+<table *ngIf="schedule.length">
+  <thead>
+    <tr>
+      <th>Installment No.</th>
+      <th>Payment Date</th>
+      <th>Principal</th>
+      <th>Interest</th>
+      <th>Total Payment</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let installment of schedule">
+      <td>{{ installment.installmentNumber }}</td>
+      <td>{{ installment.paymentDate }}</td>
+      <td>{{ installment.principal | currency }}</td>
+      <td>{{ installment.interest | currency }}</td>
+      <td>{{ installment.totalPayment | currency }}</td>
+      <td>{{ installment.remainingBalance | currency }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="!schedule.length && loanId">No repayment schedule found.</p>

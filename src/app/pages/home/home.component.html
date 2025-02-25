@@ -1,0 +1,21 @@
+<div class="dashboard-container">
+  <div class="widgets">
+    <!-- Total Loans Widget -->
+    <div class="widget" (click)="navigateTo('dashboard/total-loans')">
+      <h3>Total Loans</h3>
+      <p>{{ totalLoans }}</p>
+    </div>
+
+    <!-- Pending Loans Widget -->
+    <div class="widget" (click)="navigateTo('dashboard/pending-loans')">
+      <h3>Pending Loans</h3>
+      <p>{{ pendingLoans }}</p>
+    </div>f
+
+    <!-- Paid Loans Widget -->
+    <div class="widget" (click)="navigateTo('dashboard/paid-loans')">
+      <h3>Paid Loans</h3>
+      <p>{{ paidLoans }}</p>
+    </div>
+  </div>
+</div>

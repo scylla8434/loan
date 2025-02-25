@@ -1,0 +1,39 @@
+<div class="reports-container">
+    <div class="tabs">
+      <button *ngFor="let type of ['allCustomers', 'pendingLoans', 'paidLoans', 'totalLoans']"
+              (click)="filterReport(type)"
+              [class.active]="selectedReport === type">
+        {{ type | titlecase }}
+      </button>
+    </div>
+  
+    <div class="report-table">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of (reports[selectedReport] || [])">
+
+            <td>{{ report.id }}</td>
+            <td>{{ report.name }}</td>
+            <td>{{ report.amount }}</td>
+            <td>{{ report.status }}</td>
+            <td>{{ report.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="download-buttons">
+      <button (click)="downloadReport('PDF')">Download PDF</button>
+      <button (click)="downloadReport('Word')">Download Word</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,22 @@
+<h2>Delete Customer</h2>
+
+<!-- Customer ID Input -->
+<label for="id">Enter Customer ID:</label>
+<input type="number" id="id" [(ngModel)]="id" placeholder="Enter ID" required>
+<button (click)="searchCustomer()">Search</button>
+
+<!-- Display Customer Details -->
+<div *ngIf="customer">
+  <h3>Customer Details</h3>
+  <p><strong>ID:</strong> {{ customer.id }}</p>
+  <p><strong>Name:</strong> {{ customer.firstName }} {{ customer.lastName }}</p>
+  <p><strong>Email:</strong> {{ customer.email }}</p>
+  <p><strong>Phone:</strong> {{ customer.phoneNumber }}</p>
+  <p><strong>Address:</strong> {{ customer.address }}</p>
+  
+  <!-- Delete Button -->
+  <button (click)="deleteCustomer()">Delete Customer</button>
+</div>
+
+<!-- Display Messages -->
+<p *ngIf="message">{{ message }}</p>

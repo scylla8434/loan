@@ -1,0 +1,8 @@
+<h2>Create Loan</h2>
+<form [formGroup]="loanForm" (ngSubmit)="submitLoan()">
+  <label>Email: <input formControlName="customerEmail" required /></label>
+  <label>Amount: <input type="number" formControlName="amount" required /></label>
+  <label>Interest Rate: <input type="number" formControlName="interestRate" required /></label>
+  <label>Duration (months): <input type="number" formControlName="durationMonths" required /></label>
+  <button type="submit">Create Loan</button>
+</form>

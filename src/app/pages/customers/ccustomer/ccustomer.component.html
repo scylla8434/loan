@@ -1,0 +1,41 @@
+<div class="container mt-3">
+  <form (ngSubmit)="createCustomer()">
+    <div class="row jumbotron box8">
+      <!-- <div class="col-sm-12 mx-t3 mb-4">
+        <h3 class="text-center text-dark">Add New Customer</h3>
+      </div> -->
+
+      <div class="col-sm-6 form-group">
+        <label for="name-f">First Name</label>
+        <input type="text" class="form-control" id="name-f" [(ngModel)]="customer.firstName" name="firstName" placeholder="Enter your first name." required>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="name-l">Last Name</label>
+        <input type="text" class="form-control" id="name-l" [(ngModel)]="customer.lastName" name="lastName" placeholder="Enter your last name." required>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="customer.email" name="email" placeholder="Enter your email." required>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="address-2">Address Line</label>
+        <input type="text" class="form-control" id="address-2" [(ngModel)]="customer.address" name="address" placeholder="Village/City Name." required>
+      </div>
+
+      <div class="col-sm-4 form-group">
+        <label for="tel">Phone</label>
+        <input type="tel" class="form-control" id="tel" [(ngModel)]="customer.phoneNumber" name="phoneNumber" placeholder="Enter Your Contact Number." required>
+      </div>
+
+      <div class="col-sm-12 form-group mb-0">
+        <button type="submit" class="btn btn-primary float-right">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Success Message -->
+  <div *ngIf="message" class="alert alert-success mt-3">{{ message }}</div>
+</div>

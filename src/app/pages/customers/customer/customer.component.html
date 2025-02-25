@@ -1,0 +1,17 @@
+<div class="customer-container">
+  <h2>Customer Management</h2>
+  <div class="dropdown">
+    <select (change)="onSelectAction($event)">
+      <option value="">Select an action</option>
+      <option value="read">View Customers</option>
+      <option value="update">Edit Customers</option>
+      <option value="delete">Delete Customer</option>
+      <option value="create">Add new customer</option>
+    </select>
+  </div>
+
+  <!-- Dynamic Component Loader -->
+  <ng-container *ngIf="selectedAction">
+    <ng-container *ngComponentOutlet="selectedComponent"></ng-container>
+  </ng-container>
+</div>
