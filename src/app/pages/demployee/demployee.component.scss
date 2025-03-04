@@ -1,0 +1,74 @@
+.delete-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .delete-button {
+    background: #dc3545;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background: #c82333;
+  }
+  
+  .cancel-button {
+    background: #6c757d;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background: #5a6268;
+  }
+  
+  .not-found {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .back-button:hover {
+    background: #0056b3;
+  }
+  

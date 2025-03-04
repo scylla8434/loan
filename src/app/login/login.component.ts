@@ -1,35 +1,30 @@
-
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, FormsModule, RouterLink],
+  standalone: true,
+  imports: [FormsModule, CommonModule,RouterLink],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss'], // Add styling
 })
 export class LoginComponent {
-  errorMessage: string | null = null;
-
   constructor(private authService: AuthService, private router: Router) {}
 
-  onLogin(form: NgForm) {
-    if (form.valid) {
-      const credentials = {
-        email: form.value.email,
-        password: form.value.password,
-      };
+  onLogin(form: NgForm): void {
+    if (form.invalid) {
+      console.error('Form is invalid.');
+      return;
+    }
 
-      try {
-        this.authService.login(credentials);
-      } catch (error: any) {
-        this.errorMessage = error.message;
-      }
-    } else {
-      this.errorMessage = 'Please fill out the form correctly.';
+    const { email, password } = form.value;
+    const isLoggedIn = this.authService.login(email, password);
+
+    if (!isLoggedIn) {
+      console.error('Login failed. Invalid email or password.');
     }
   }
 }

@@ -1,0 +1,17 @@
+<div *ngIf="employee" class="popup-overlay">
+  <div class="popup">
+    <h2>{{ employee.fullName || 'No Name' }}</h2>
+    
+    <img 
+      [src]="employee.profilePicture ? employee.profilePicture : 'assets/default-avatar.png'" 
+      class="profile-pic-large"
+    />
+    
+    <p><strong>Job Title:</strong> {{ employee.jobTitle || 'N/A' }}</p>
+    <p><strong>Department:</strong> {{ employee.department || 'N/A' }}</p>
+    <p><strong>Date of Joining:</strong> {{ employee.dateOfJoining || 'N/A' }}</p>
+
+    <button class="close-btn" (click)="closePopup()">Close</button>
+  </div>
+</div>
+

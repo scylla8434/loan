@@ -1,0 +1,47 @@
+<!-- Container for the entire employee management section -->
+<div class="container">
+  <!-- Header for the employee management section -->
+  <h2>Manage Employees</h2>
+  
+  <!-- Dropdown to select an action -->
+  <select (change)="onActionChange($event)" class="dropdown">
+    <!-- Default option prompting user to select an action -->
+    <option value="" selected>Select Action</option>
+    <!-- Option to add a new employee -->
+    <option value="add">Add New Employee</option>
+    <!-- Option to list all employees -->
+    <option value="list">List All Employees</option>
+    <!-- Option to view employee details -->
+    <option value="details">View Employee Details</option>
+    <!-- Option to edit employees -->
+    <option value="edit">Edit Employees</option>
+    <!-- Option to delete an employee -->
+    <option value="delete">Delete an Employee</option>
+    <!-- Option to upload and manage profile picture -->
+    <option value="profile">Upload & Manage Profile Picture</option>
+  </select>
+  
+  <!-- Container for displaying content based on selected action -->
+  <div class="content-box" [@fadeIn]>
+    <!-- Angular directive to switch content based on selected action -->
+    <ng-container [ngSwitch]="selectedAction">
+      <!-- Component to add a new employee -->
+      <app-aemployee *ngSwitchCase="'add'"></app-aemployee>
+      
+      <!-- Component to list all employees -->
+      <app-elist *ngSwitchCase="'list'"></app-elist>
+      
+      <!-- Component to view employee details -->
+      <app-edetails *ngSwitchCase="'details'"></app-edetails>
+      
+      <!-- Component to edit employees -->
+      <app-eemployee *ngSwitchCase="'edit'"></app-eemployee>
+      
+      <!-- Component to manage profile picture -->
+      <app-profpic *ngSwitchCase="'profile'"></app-profpic>
+      
+      <!-- Default message when no action is selected -->
+      <p *ngSwitchDefault class="info">Please select an action.</p>
+    </ng-container>
+  </div>
+</div>

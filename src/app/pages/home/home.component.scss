@@ -1,58 +1,88 @@
-.dashboard-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-  background-color:rgb(231, 240, 233);
+// Dashboard Section
+.dashboard {
+    padding: 20px; // Adds padding inside the dashboard
+    font-family: "Poppins", sans-serif; // Sets the font family for the dashboard
 }
 
+// Widgets Section
 .widgets {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1200px;
-  width: 100%;
+    display: flex; // Uses flexbox layout for widgets
+    gap: 20px; // Adds space between widgets
+    justify-content: space-between; // Distributes widgets evenly with space between them
+    flex-wrap: nowrap; // Prevents widgets from wrapping to the next line
+    margin-bottom: 20px; // Adds margin below the widgets section
+
+    .widget {
+        background: #fff; // Sets the background color to white
+        border-radius: 12px; // Rounds the corners of the widget
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Adds a shadow effect to the widget
+        display: flex; // Uses flexbox layout for widget content
+        align-items: center; // Centers items vertically within the widget
+        padding: 15px; // Adds padding inside the widget
+        width: 250px; // Sets the width of the widget
+        transition: transform 0.3s ease, box-shadow 0.3s ease; // Adds transition effects for transform and box-shadow
+        cursor: pointer; // Changes cursor to pointer on hover
+
+        i {
+            font-size: 40px; // Sets the font size for icons
+            color: #007bff; // Sets the color for icons
+            margin-right: 15px; // Adds margin to the right of icons
+        }
+
+        .info {
+            h3 {
+                font-size: 24px; // Sets the font size for headings
+                font-weight: bold; // Makes the heading text bold
+                margin: 0; // Removes default margin from headings
+            }
+
+            p {
+                font-size: 14px; // Sets the font size for paragraphs
+                color: #666; // Sets the color for paragraphs
+            }
+        }
+
+        &:hover {
+            transform: translateY(-5px); // Moves the widget up slightly on hover
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); // Increases the shadow effect on hover
+        }
+    }
 }
 
-.widget {
-  flex: 1 1 calc(33.333% - 40px);
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+// Charts Section
+.charts-container {
+    display: flex; // Uses flexbox layout for charts
+    flex-wrap: wrap; // Allows charts to wrap to the next line if needed
+    gap: 20px; // Adds space between charts
+    justify-content: center; // Centers charts horizontally
+
+    #bar-chart,
+    #pie-chart {
+        flex: 1; // Allows charts to grow and shrink as needed
+        min-width: 300px; // Sets the minimum width for charts
+        max-width: 500px; // Sets the maximum width for charts
+        background: #fff; // Sets the background color to white
+        padding: 15px; // Adds padding inside the charts
+        border-radius: 12px; // Rounds the corners of the charts
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Adds a shadow effect to the charts
+        transition: transform 0.3s ease; // Adds transition effect for transform
+
+        &:hover {
+            transform: translateY(-5px); // Moves the chart up slightly on hover
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); // Increases the shadow effect on hover
+        }
+    }
 }
 
-.widget:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.widget h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.widget p {
-  margin: 10px 0 0;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #007bff;
-}
-
-/* Responsive Design */
+// Responsive Design
 @media (max-width: 768px) {
-  .widget {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
+    .widgets {
+        flex-direction: column; // Stacks widgets vertically on small screens
+        align-items: center; // Centers widgets horizontally
+    }
 
-@media (max-width: 480px) {
-  .widget {
-    flex: 1 1 100%;
-  }
+    .charts-container {
+        flex-direction: column; // Stacks charts vertically on small screens
+        align-items: center; // Centers charts horizontally
+    }
 }

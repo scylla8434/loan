@@ -1,0 +1,29 @@
+<div class="employee-list">
+  <h2>All Employees</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Profile</th>
+        <th>Name</th>
+        <th>Job Title</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>
+          <img [src]="employee.profilePicture || 'assets/default-avatar.png'" alt="Profile" class="profile-pic"/>
+        </td>
+        <td>{{ employee.fullName }}</td>
+        <td>{{ employee.jobTitle }}</td>
+        <td>{{ employee.department }}</td>
+        <td>
+            <button class="view-btn btn btn-primary" (click)="viewEmployee(employee.id)">View</button>
+            <button class="edit-btn btn btn-secondary" (click)="editEmployee(employee)">Edit</button>
+            <button class="delete-btn btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

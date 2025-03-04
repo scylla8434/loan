@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Add New Employee</h2>
+  
+    <form (submit)="addEmployee()">
+      <input type="text" name="fullName" placeholder="Full Name" [(ngModel)]="employee.fullName" required>
+      <input type="text" name="jobTitle" placeholder="Job Title" [(ngModel)]="employee.jobTitle" required>
+      <input type="text" name="department" placeholder="Department" [(ngModel)]="employee.department" required>
+      <input type="date" name="dateOfJoining" [(ngModel)]="employee.dateOfJoining" required>
+  
+      <label class="file-upload">
+        Upload Profile Picture
+        <input type="file" (change)="onFileChange($event)" accept="image/*">
+      </label>
+  
+      <img *ngIf="employee.profilePicture" [src]="employee.profilePicture" alt="Preview" class="preview">
+  
+      <button type="submit">Add Employee</button>
+    </form>
+  </div>
+  

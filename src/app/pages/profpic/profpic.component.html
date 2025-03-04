@@ -1,0 +1,25 @@
+<div class="profile-picture-container">
+  <h2>Upload & Manage Profile Picture</h2>
+  <div *ngIf="employee">
+    <p>Employee: {{ employee.name }}</p>
+    <form (ngSubmit)="onSubmit()" class="upload-form">
+      <div class="form-group">
+        <label for="profilePicture">Choose Profile Picture:</label>
+        <input
+          type="file"
+          id="profilePicture"
+          (change)="onFileChange($event)"
+          accept="image/*"
+          required
+        />
+      </div>
+      <div *ngIf="previewUrl" class="image-preview">
+        <img [src]="previewUrl" alt="Profile Picture Preview" />
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-upload">Save</button>
+        <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,156 +1,81 @@
 <div class="form_wrapper">
-  <div class="form_container">
-    <div class="title_container">
-      <h2>Register Here</h2>
-    </div>
-    <div class="row clearfix">
-      <div class="">
-        <form #registrationForm="ngForm" (ngSubmit)="onRegister(registrationForm)"> 
-          <!-- Display error message if it exists -->
-          <div *ngIf="errorMessage" class="error-message">
-            {{ errorMessage }}
-          </div>
-
-          <!-- First Name -->
-          <div class="row clearfix">
-            <div class="col_half">
-              <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First Name"
-                  ngModel
-                  required
-                  #firstName="ngModel"
-                />
-              </div>
-              <!-- First Name Validation Messages -->
-              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
-                <div *ngIf="firstName.errors?.['required']">First Name is required.</div>
-              </div>
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Register Here</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form #registrationForm="ngForm" (ngSubmit)="onRegister(registrationForm)">
+            <!-- Display error message if it exists -->
+            <div *ngIf="errorMessage" class="error-message">
+              {{ errorMessage }}
             </div>
-
+  
+            <!-- First Name -->
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input type="text" name="firstName" placeholder="First Name" ngModel required />
+            </div>
+  
             <!-- Last Name -->
-            <div class="col_half">
-              <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last Name"
-                  ngModel
-                  required
-                  #lastName="ngModel"
-                />
-              </div>
-              <!-- Last Name Validation Messages -->
-              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
-                <div *ngIf="lastName.errors?.['required']">Last Name is required.</div>
-              </div>
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input type="text" name="lastName" placeholder="Last Name" ngModel required />
             </div>
-          </div>
-
-          <!-- Email -->
-          <div class="input_field">
-            <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              ngModel
-              required
-              email
-              #email="ngModel"
-            />
-          </div>
-          <!-- Email Validation Messages -->
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
-            <div *ngIf="email.errors?.['required']">Email is required.</div>
-            <div *ngIf="email.errors?.['email']">Please enter a valid email.</div>
-          </div>
-
-          <!-- Phone Number -->
-          <div class="input_field">
-            <span><i aria-hidden="true" class="fa fa-phone"></i></span>
-            <input
-              type="number"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              ngModel
-              required
-              pattern="[0-9]{10}"
-              #phoneNumber="ngModel"
-            />
-          </div>
-          <!-- Phone Number Validation Messages -->
-          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="error-message">
-            <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required.</div>
-            <div *ngIf="phoneNumber.errors?.['pattern']">Phone Number must be 10 digits.</div>
-          </div>
-
-          <!-- Password -->
-          <div class="input_field">
-            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              ngModel
-              required
-              minlength="6"
-              #password="ngModel"
-            />
-          </div>
-          <!-- Password Validation Messages -->
-          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
-            <div *ngIf="password.errors?.['required']">Password is required.</div>
-            <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters.</div>
-          </div>
-
-          <!-- Confirm Password -->
-          <div class="input_field">
-            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              ngModel
-              required
-              #confirmPassword="ngModel"
-            />
-          </div>
-          <!-- Confirm Password Validation Messages -->
-          <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="error-message">
-            <div *ngIf="confirmPassword.errors?.['required']">Confirm Password is required.</div>
-          </div>
-
-          <!-- User Type -->
-          <div class="input_field select_option">
-            <select name="userType" ngModel required #userType="ngModel">
-              <option value="">User Type</option>
-              <option value="admin">Admin</option>
-              <option value="superUser">Super User</option>
-            </select>
-            <div class="select_arrow"></div>
-          </div>
-          <!-- User Type Validation Messages -->
-          <div *ngIf="userType.invalid && (userType.dirty || userType.touched)" class="error-message">
-            <div *ngIf="userType.errors?.['required']">User Type is required.</div>
-          </div>
-
-          <!-- Remember Me -->
-          <div class="input_field checkbox_option">
-            <input type="checkbox" id="cb1" name="rememberMe" ngModel #rememberMe="ngModel">
-            <label for="cb1">Remember Me</label>
-          </div>
-
-          <!-- Submit Button -->
-          <input class="button" type="submit" value="Register" [disabled]="registrationForm.invalid" />
-          <p class="message">Already Registered? <a routerLink="/login">Login</a></p>
-        </form>
+  
+            <!-- Email -->
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" name="email" placeholder="Email" ngModel required email />
+            </div>
+  
+            <!-- Phone Number -->
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+              <input type="text" name="phoneNumber" placeholder="Phone Number" ngModel required />
+            </div>
+  
+            <!-- Role -->
+            <div class="input_field select_option">
+              <select name="role" ngModel required>
+                <option value="">Select Role</option>
+                <option value="ADMIN">Admin</option>
+                <option value="EMPLOYEE">Employee</option>
+              </select>
+              <div class="select_arrow"></div>
+            </div>
+  
+            <!-- Password -->
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                ngModel
+                required
+                minlength="6"
+              />
+            </div>
+  
+            <!-- Confirm Password -->
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                ngModel
+                required
+                minlength="6"
+              />
+            </div>
+  
+            <!-- Submit Button -->
+            <input class="button" type="submit" value="Register" [disabled]="registrationForm.invalid" />
+            <p class="message">Already Registered? <a routerLink="/login">Login</a></p>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<p class="credit">Developed by <a href="http://www.designtheway.com" target="_blank">E&M Tech</a></p>

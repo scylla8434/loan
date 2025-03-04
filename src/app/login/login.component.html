@@ -1,14 +1,24 @@
 <div class="form_wrapper">
+  <!-- Wrapper for the entire form -->
   <div class="form_container">
+    <!-- Container for the form elements -->
     <div class="title_container">
+      <!-- Container for the title -->
       <h2>Login</h2>
+      <!-- Title of the form -->
     </div>
-    <div class="row clearfix"> 
+    <div class="row clearfix">
+      <!-- Row for form alignment -->
       <div class="">
+        <!-- Empty div for potential styling or structure -->
         <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+          <!-- Form element with Angular template reference variable and submit event binding -->
+          
           <!-- Email Field -->
           <div class="input_field">
+            <!-- Container for the email input field -->
             <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <!-- Icon for the email field -->
             <input
               type="email"
               name="email"
@@ -16,18 +26,15 @@
               ngModel
               required
               email
-              #email="ngModel"
             />
+            <!-- Email input field with Angular directives for validation -->
           </div>
-          <!-- Email Validation Messages -->
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
-            <div *ngIf="email.errors?.['required']">Email is required.</div>
-            <div *ngIf="email.errors?.['email']">Please enter a valid email.</div>
-          </div>
-
+          
           <!-- Password Field -->
           <div class="input_field">
+            <!-- Container for the password input field -->
             <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+            <!-- Icon for the password field -->
             <input
               type="password"
               name="password"
@@ -35,22 +42,17 @@
               ngModel
               required
               minlength="6"
-              #password="ngModel"
             />
+            <!-- Password input field with Angular directives for validation -->
           </div>
-          <!-- Password Validation Messages -->
-          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
-            <div *ngIf="password.errors?.['required']">Password is required.</div>
-            <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters.</div>
-          </div>
-
+          
           <!-- Submit Button -->
           <input class="button" type="submit" value="Login" [disabled]="loginForm.invalid" />
+          <!-- Submit button that is disabled if the form is invalid -->
           <p class="message">Not yet Registered? <a routerLink="/register">Sign Up</a></p>
+          <!-- Message with a link to the registration page -->
         </form>
       </div>
-      
     </div>
   </div>
 </div>
-<p class="credit">Developed by <a href="teddy-anangwe.vercel.app" target="_blank">E&M Tech</a></p>
